@@ -21,6 +21,10 @@ local settings  = _G.settings
 local term      = _G.term
 local textutils = _G.textutils
 
+local monitor = peripheral.wrap("top")
+term.redirect(monitor)
+monitor.setTextScale(0.5)
+
 local function loadBootOptions()
 	if not fs.exists('.startup.boot') then
 		local f = fs.open('.startup.boot', 'w')
